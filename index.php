@@ -5,6 +5,9 @@
         <link rel="stylesheet" href="static/css/bootstrap.css">
         <link rel="stylesheet" href="static/css/main.css?a=1">
     <body>
+        <div class="content-flex">
+            <div class="row">
+                <div class="col-4">
         <?php
             include('functions/globals.php');
             $config = include('config/config.php'); 
@@ -70,32 +73,48 @@
                 </div>                
         <?php
             }
+        ?>
+            </div>
+                <div class="col-8">
+                
+                    <div id="div1" style="margin-top:200px;width:200px;height:200px;border:1px solid black;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                
+                </div>
+            </div>
+        </div>
+        <?php
 
             foreach($items as $item){
-            ?>
-                <div class="itemBlock">
-                    <div><span class="pr-2"><input type="checkbox" value="<?=$item->id?>"/></span><?=$item->name?> - <?=$item->id?></div>
-                    <div>
-                        <?php
-                            if(property_exists($item,'stats')){
-                                foreach($item->stats as $mod=>$val){
-                                    ?>
-                                    <div class="statMods" data-mod="<?=$mod.'|'.$val?>"><?=$mod.'|'.$val?></div>
-                                    <?php
-                                }
-                            }
-                        ?>
+                $twistedT = '10';
+                $summonersR = '11';
+                $HowlingA = '12';
+                if(($item->maps->$twistedT || $item->maps->$summonersR || $item->maps->$HowlingA) && !property_exists($item,'hideFromAll') ){ 
+                ?>
+                    <div class="itemBlock">
+                        <div><span class="pr-2"><input type="checkbox" value="<?=$item->id?>"/></span><?=$item->name?> - <?=$item->id?></div>
+                        <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/item/<?=$item->image->full?>" alt="" draggable="true" ondragstart="drag(event)">
+                        <div>
+                            <?php
+                                /*if(property_exists($item,'stats')){
+                                    foreach($item->stats as $mod=>$val){
+                                        ?>                                    
+                                        <div class="statMods" data-mod="<?=$mod.'|'.$val?>"><?=$mod.'|'.$val?></div>
+                                        <?php
+                                    }
+                                }*/
+                            ?>
+                        </div>
+                        <hr/>
                     </div>
-                    <hr/>
-                </div>
-            <?php
+                <?php
+                 }
             }
 
         ?>
 
         <div id="js_container">
             <script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>
-            <script type="text/javascript" src="static/js/main.js?a=3"></script>
+            <script type="text/javascript" src="static/js/main.js?a=4"></script>
         </div>
 
     </body>
