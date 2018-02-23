@@ -1,0 +1,14 @@
+.box{
+    padding: 20px;
+}
+.champBlock,.champLvl{ display:none; }
+.champBlock{
+    padding-left: 20px;
+}
+.champName{
+    font-size: 30px;
+    padding-left: 20px;
+}
+.itemBlock{
+    padding-left: 20px;
+}

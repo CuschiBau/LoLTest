@@ -17,8 +17,7 @@
         $force_refresh	= false; // dev
         $refresh		= 60*60; // once an hour
         
-        if ($force_refresh || ((time() - filectime($cache)) > ($refresh) || 0 == filesize($cache))) {
-
+        if ($force_refresh || ((time() - filectime($cache)) < ($refresh) || 0 == filesize($cache))) {
             $ch = curl_init(buildUrl($region,$type,$spec,$query));
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
