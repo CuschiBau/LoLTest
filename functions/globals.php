@@ -42,6 +42,6 @@
     }
 
     function calcStatsGrowth($base,$growth,$level){
-        return $base + $growth*($level-1)*(0.685+0.0175*$level);
+        return round($base + $growth*($level-1)*(0.685+0.0175*$level),3);
     }
 ?>

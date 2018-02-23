@@ -41,6 +41,8 @@
                                 $cHPRegen = calcStatsGrowth($hpregen,$hpregenperlevel,$i);
                                 $cMP = calcStatsGrowth($mp,$mpperlevel,$i);
                                 $cMPRegen = calcStatsGrowth($mpregen,$mpregenperlevel,$i);
+                                $baseAttackSpeed = round( 0.625 / (1+$attackspeedoffset), 3);
+                                $cAttackSpeed = calcStatsGrowth($baseAttackSpeed,($attackspeedperlevel/100),$i); ;
                                 $cArmor = calcStatsGrowth($armor,$armorperlevel,$i);
                                 $cMR = calcStatsGrowth($spellblock,$spellblockperlevel,$i);
                         ?>
@@ -53,6 +55,7 @@
                                     <div class="attr">HP Regen: <span data-attr="hpr" data-base="<?=$cHPRegen?>"><?=$cHPRegen?></span></div>
                                     <div class="attr">Mana: <span data-attr="mp" data-base="<?=$cMP?>"><?=$cMP?></span></div>
                                     <div class="attr">Mana Regen: <span  data-attr="mpr" data-base="<?=$cMPRegen?>"><?=$cMPRegen?></span></div>
+                                    <div class="attr">Attack Speed: <span  data-attr="crit" data-base="<?=$cAttackSpeed?>"><?=$cAttackSpeed?></span></div>
                                     <div class="attr">Crit Chance: <span  data-attr="crit" data-base="0">0</span></div>
                                     <div class="attr">Armor: <span data-attr="ar" data-base="<?=$cArmor?>"><?=$cArmor?></span></div>
                                     <div class="attr">Magic Resist: <span data-attr="mr" data-base="<?=$cMR?>"><?=$cMR?></span></div>
